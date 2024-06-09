@@ -1,0 +1,29 @@
+# 38 - Leia uma data de nascimento de uma pessoa fornecida através de três números inteiros: Dia, Mês, Ano.
+# Teste a validade desta data para saber se esta é uma data válida. Teste se o dia fornecido é um dia válido
+# dia > 0, dia <= 28 para o mês de Fevereiro (29 se o ano for bissexto), dia <= 30 em Abril, Junho, Setembro
+# e Novembro, dia <= 31 nos outros meses. Teste a validade do mês: mês > 0 e mês < 13. Teste a validade do ano
+# <= ano atual (use uma constante definida com o valor igual a 2008). Imprima: "data válida" ou "data inválida"
+# no final do programa.
+
+
+dia = int(input("Informe do dia de seu nascimento: "))
+mes = int(input("Informe o mês de seu nascimento: "))
+ano = int(input("Informe o ano de seu nascimento: "))
+
+if dia > 0 and dia <= 31 and mes > 0 and mes < 13 and ano <= 2008:
+    if mes in [4, 6, 9, 11] and dia <= 30:
+        print("Data Válida")
+    elif mes == 2:
+        if (ano % 4 == 0 and ano % 100 != 0) or ano % 400 == 0:
+            if dia <= 29:
+                print("Data Válida")
+            else:
+                print("Data Inválida")
+        elif dia <= 28:
+            print("Data Válida")
+        else:
+            print("Data Inválida")
+    else:
+        print("Data Válida")
+else:
+    print("Data Inválida")
